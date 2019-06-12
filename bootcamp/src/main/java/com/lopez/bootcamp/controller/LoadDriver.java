@@ -24,6 +24,7 @@ public class LoadDriver {
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT foo FROM bar");
 
+
             // or alternatively, if you don't know ahead of time that
             // the query will be a SELECT...
 
