@@ -2,8 +2,11 @@ package com.lopez.bootcamp.controller;
 
 import com.lopez.bootcamp.entity.Customer;
 import com.lopez.bootcamp.repository.CustomerRepository;
+import com.lopez.bootcamp.service.CustomerManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,11 +15,12 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping(value = "/lopez")
+@RequestMapping(value = "")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class Controller{
 
       private CustomerRepository customerRepository;
+      private CustomerManagementService customerManagementService;
 //    private CustomUserDetailsService userService;
 //
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -56,17 +60,17 @@ public class Controller{
 //        return modelAndView;
 //    }
 //
-//    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-//    public ModelAndView dashboard() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        User user = userService.findUserByEmail(auth.getName());
-//        modelAndView.addObject("currentUser", user);
-//        modelAndView.addObject("fullName", "Welcome " + user.getFullname());
-//        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-//        modelAndView.setViewName("dashboard");
-//        return modelAndView;
-//    }
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public ModelAndView dashboard() {
+        ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Customer customer = customerManagementService.findCustomerByEmail(auth.getName());
+        modelAndView.addObject("currentCustomer", customer);
+        modelAndView.addObject("fullName", "Welcome " + customer.getCustomerName());
+        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
+        modelAndView.setViewName("dashboard");
+        return modelAndView;
+    }
 //
 //    @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
 //    public ModelAndView home() {
