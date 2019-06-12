@@ -4,6 +4,6 @@ import com.lopez.bootcamp.entity.Customer;
 
 public interface CustomerManagementService {
 
-    Customer findCustomerByEmail(Customer customer);
+    Customer findCustomerByEmail(String customerEmail);
 
 }
