@@ -14,7 +14,8 @@ public class CustomerServiceImpl implements CustomerManagementService {
 
     @Override
     public Customer findCustomerByEmail(String customerEmail) {
-        return customerRepository.findCustomerByCustomerEmail(customerEmail);
+        Customer customer = customerRepository.findCustomerByCustomerEmail(customerEmail);
+        return customer;
     }
 
 
