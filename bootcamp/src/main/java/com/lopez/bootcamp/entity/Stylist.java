@@ -15,14 +15,12 @@ import javax.persistence.Table;
 
 public class Stylist {
 
-
     @EmbeddedId
+    private int stylistId;
 
     private String stylistName;
 
     private String stylistEmail;
-
-    private int stylistId;
 
     private String stylistAddress;
 }

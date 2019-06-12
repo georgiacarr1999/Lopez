@@ -7,12 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
-import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "")
@@ -65,7 +61,7 @@ public class Controller{
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Customer customer = customerManagementService.findCustomerByEmail(auth.getName());
-        modelAndView.addObject("currentCustomer", customer);
+        modelAndView.addObject("currentUser", customer);
         modelAndView.addObject("fullName", "Welcome " + customer.getCustomerName());
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("dashboard");
