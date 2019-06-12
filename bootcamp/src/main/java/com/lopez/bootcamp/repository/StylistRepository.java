@@ -1,0 +1,12 @@
+package com.lopez.bootcamp.repository;
+
+import com.lopez.bootcamp.entity.Stylist;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface StylistRepository extends JpaRepository<Stylist, String> {
+
+    @Query("FROM Stylist WHERE stylistEmail = :stylistEmail")
+    Stylist findStylistByStylistEmail(@Param("stylistEmail")String stylistEmail);
+}
