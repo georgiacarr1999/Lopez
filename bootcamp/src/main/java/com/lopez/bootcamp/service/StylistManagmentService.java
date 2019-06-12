@@ -6,5 +6,4 @@ public interface StylistManagmentService {
 
     Stylist findStylistByEmail(Stylist stylist);
 
-
 }

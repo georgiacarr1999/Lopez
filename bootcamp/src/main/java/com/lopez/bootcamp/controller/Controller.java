@@ -1,6 +1,7 @@
 package com.lopez.bootcamp.controller;
 
 import com.lopez.bootcamp.entity.Customer;
+import com.lopez.bootcamp.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -15,14 +16,15 @@ import java.util.ArrayList;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class Controller{
 
+      private CustomerRepository customerRepository;
 //    private CustomUserDetailsService userService;
 //
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public ModelAndView login() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("login");
-//        return modelAndView;
-//    }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
 //
 //    @RequestMapping(value = "/signup", method = RequestMethod.GET)
 //    public ModelAndView signup() {

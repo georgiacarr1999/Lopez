@@ -1,4 +1,21 @@
 package com.lopez.bootcamp.service;
 
-public class CustomerServiceImpl {
+import com.lopez.bootcamp.entity.Customer;
+import com.lopez.bootcamp.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class CustomerServiceImpl implements CustomerManagementService {
+
+    private final CustomerRepository customerRepository;
+
+    @Override
+    public Customer findCustomerByEmail(Customer customer) {
+        return customerRepository.findCustomerByCustomerEmail(customer.getCustomerEmail());
+    }
+
+
 }
