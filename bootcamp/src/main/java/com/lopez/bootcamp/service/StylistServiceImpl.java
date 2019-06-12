@@ -13,8 +13,8 @@ public class StylistServiceImpl implements StylistManagmentService {
     private final StylistRepository stylistRepository;
 
     @Override
-    public Stylist findStylistByEmail(Stylist stylist) {
-        return stylistRepository.findStylistByStylistEmail(stylist.getStylistEmail());
+    public Stylist findStylistByEmail(String stylist) {
+        return stylistRepository.findStylistByStylistEmail(stylist);
     }
 
 }
