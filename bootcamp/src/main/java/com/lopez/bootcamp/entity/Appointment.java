@@ -4,8 +4,8 @@ package com.lopez.bootcamp.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -15,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 public class Appointment {
 
-    @EmbeddedId
+    @Id
     private int appointmentId;
 
     private Date dateCreated;

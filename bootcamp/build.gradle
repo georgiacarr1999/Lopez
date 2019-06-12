@@ -15,6 +15,11 @@ configurations {
 	}
 }
 
+bootJar {
+	baseName = 'gs-securing-web'
+	version =  '0.1.0'
+}
+
 repositories {
 	mavenCentral()
 }
@@ -28,6 +33,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+//	compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.1.5.RELEASE'
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.7.RELEASE'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.16'
 }

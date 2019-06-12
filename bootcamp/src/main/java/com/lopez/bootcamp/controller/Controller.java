@@ -5,18 +5,20 @@ import com.lopez.bootcamp.repository.CustomerRepository;
 import com.lopez.bootcamp.service.CustomerManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping(value = "")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class Controller{
 
       private CustomerRepository customerRepository;
+
+      @Autowired
       private CustomerManagementService customerManagementService;
+
 //    private CustomUserDetailsService userService;
 //
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -59,9 +61,9 @@ public class Controller{
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView dashboard() {
         ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Customer customer = customerManagementService.findCustomerByEmail(auth.getName());
-        modelAndView.addObject("currentUser", customer);
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Customer customer = customerManagementService.findCustomerByEmail("cust@email.com");
+        modelAndView.addObject("currentUser", customer.getCustomerName());
         modelAndView.addObject("fullName", "Welcome " + customer.getCustomerName());
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("dashboard");

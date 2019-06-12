@@ -4,8 +4,8 @@ package com.lopez.bootcamp.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 public class Stylist {
 
-    @EmbeddedId
+    @Id
     private int stylistId;
 
     private String stylistName;
