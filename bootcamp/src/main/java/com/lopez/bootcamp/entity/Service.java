@@ -13,16 +13,21 @@ import javax.persistence.Table;
 @Table(name = "content")
 @EqualsAndHashCode(callSuper = false)
 
-public class Stylist {
+public class Service {
+
 
 
     @EmbeddedId
 
-    private String stylistName;
+    private int serviceId;
 
-    private String stylistEmail;
+    private String serviceName;
+
+    private int price;
+
+    private int duration;
+
+    private String description;
 
     private int stylistId;
-
-    private String stylistAddress;
 }
