@@ -10,12 +10,10 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "content")
+@Table(name = "Services")
 @EqualsAndHashCode(callSuper = false)
 
 public class Service {
-
-
 
     @EmbeddedId
 

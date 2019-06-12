@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "content")
+@Table(name = "Appointments")
 @EqualsAndHashCode(callSuper = false)
 public class Appointment {
 

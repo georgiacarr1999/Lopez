@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "content")
+@Table(name = "Customers")
 @EqualsAndHashCode(callSuper = false)
 public class Customer{
 

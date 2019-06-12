@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "content")
+@Table(name = "Stylists")
 @EqualsAndHashCode(callSuper = false)
 
 public class Stylist {
