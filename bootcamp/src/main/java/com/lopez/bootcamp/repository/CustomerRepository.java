@@ -12,4 +12,5 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     @Query("FROM Stylist WHERE stylistEmail = :stylistEmail")
     Stylist findStylistByStylistEmail(@Param("stylistEmail")String stylistEmail);
+
 }
